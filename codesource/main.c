@@ -1,3 +1,4 @@
+#include <mygba.h>
 #include "main.h"
 #include "son.h"
 #include "mesfonts.h"

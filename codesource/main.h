@@ -6,9 +6,9 @@
 /**
  * \brief Types usuels sur GBA
  **/
-typedef unsigned char    u8;
-typedef unsigned short   u16;
-typedef unsigned long    u32;
+//typedef unsigned char    u8;
+//typedef unsigned short   u16;
+//typedef unsigned long    u32;
 
 /**
  * Variables globales
@@ -45,7 +45,7 @@ u16* spritePalette 	= (u16*) 0x5000200;
 /**
  *\brief Couleur RGB
  **/
-#define RGB(r, g, b)     ((r) | (g << 5) | (b << 10)) // Pour mode 3
+#define RGBPICO(r, g, b)     ((r) | (g << 5) | (b << 10)) // Pour mode 3
 //#define RGB(r,g,b)        ((r)+((g)<<5)+((b)<<10)) //pour le mode 4 ?
 
 /** 
@@ -69,16 +69,16 @@ u16* spritePalette 	= (u16*) 0x5000200;
  \brief Définition des Couleurs
  * http://www.jokconcept.net/codes-couleurs-hexdecimal.php)
  */
-#define BLANC	RGB(255, 255, 255)
-#define ROUGE	RGB(255, 0, 0)
-#define JAUNE	RGB(255, 255, 0)
-#define BLEU	RGB(0, 10, 153)
-#define BLEUCLAIR	RGB(0, 25, 153)
-#define NOIR	RGB(0, 0, 0)
-#define GRIS	RGB(90,90,90)
-#define VERT	RGB(100,200,100)
-#define VIOLET	RGB(50,100,50)
-#define ROSE	RGB(255,204,255)
+#define BLANC	RGBPICO(255, 255, 255)
+#define ROUGE	RGBPICO(255, 0, 0)
+#define JAUNE	RGBPICO(255, 255, 0)
+#define BLEU	RGBPICO(0, 10, 153)
+#define BLEUCLAIR	RGBPICO(0, 25, 153)
+#define NOIR	RGBPICO(0, 0, 0)
+#define GRIS	RGBPICO(90,90,90)
+#define VERT	RGBPICO(100,200,100)
+#define VIOLET	RGBPICO(50,100,50)
+#define ROSE	RGBPICO(255,204,255)
 
 /**
  \brief Registres pour les Timers
@@ -92,8 +92,8 @@ u16* spritePalette 	= (u16*) 0x5000200;
 #define TIME_ENABLE 0x80
 #define TIME_IRQ_ENABLE 0x40
 
-#define REG_TM2D         *(volatile u16*) 0x4000108
-#define REG_TM2CNT       *(volatile u16*) 0x400010A
-#define REG_TM3D         *(volatile u16*) 0x400010C
-#define REG_TM3CNT       *(volatile u16*) 0x400010E
+#define REG_TM2DPICO         *(volatile u16*) 0x4000108
+#define REG_TM2CNTPICO       *(volatile u16*) 0x400010A
+#define REG_TM3DPICO         *(volatile u16*) 0x400010C
+#define REG_TM3CNTPICO       *(volatile u16*) 0x400010E
 
