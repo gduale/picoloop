@@ -1,57 +1,63 @@
 /*Afficher sur l'écran PATTERN le détail sur le menu sélectioné*/
-void afficherParametreChoisi(u16 XmenuMax, u16 YmenuMax) {
+void afficherParametreChoisi(u16 menuEncours) {
     /*Position en Y du texte détaillant le menu selectioné*/
     u8 xTextMenu, yTextMenu;
     xTextMenu = 5;
     yTextMenu = 135;
 
-    if (XmenuMax == 0) {
-        if (YmenuMax == 0) {
+    switch (menuEncours) {
+        case 1:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC); //Faudra faire un truc plus propre pour effacer!
             afficherChaine("VOLUME / ENVELOPPE", xTextMenu, yTextMenu, NOIR);
-        }
-        if (YmenuMax == 1) {
+            break;
+
+        case 2:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC);
             afficherChaine("OCTAVE / NOTE", xTextMenu, yTextMenu, NOIR);
+            break;
 
-        }
-        if (YmenuMax == 2) {
+        case 3:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC);
             afficherChaine("PITCH", xTextMenu, yTextMenu, NOIR);
-        }
-        if (YmenuMax == 3) {
+            break;
+
+        case 4:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC);
             afficherChaine("WAVE / SWEEPDIR", xTextMenu, yTextMenu, NOIR);
-        }
-        if (YmenuMax == 4) {
+            break;
+
+        case 5:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC);
             afficherChaine("LEFT / RIGHT", xTextMenu, yTextMenu, NOIR);
-        }
-    }
+            break;
 
-    if (XmenuMax == 1) {
-        if (YmenuMax == 0) {
+        case 6:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC);
             afficherChaine("EFFECT 1", xTextMenu, yTextMenu, NOIR);
-        }
-        if (YmenuMax == 1) {
+            break;
+
+        case 7:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC);
             afficherChaine("EFFECT 2", xTextMenu, yTextMenu, NOIR);
-        }
-        if (YmenuMax == 2) {
+            break;
+
+        case 8:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC);
             afficherChaine("EFFECT 3", xTextMenu, yTextMenu, NOIR);
-        }
-        if (YmenuMax == 3) {
+            break;
+
+        case 9:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC);
             afficherChaine("EFFECT 4", xTextMenu, yTextMenu, NOIR);
-        }
-        if (YmenuMax == 4) {
+            break;
+
+        case 10:
             afficherChaine("wwwwwwwwwwwwwwwwwww", xTextMenu, yTextMenu, BLANC);
             afficherChaine("EFFECT 5", xTextMenu, yTextMenu, NOIR);
-        }
+            break;
     }
 }
+
 /*Dessin des icônes*/
 
 /*Dessine l'icone pour l'enveloppe et le volume*/
@@ -325,8 +331,7 @@ void menu(u8 menuActif, u8 menuEnCours) {
         iconeEffet5(xMenu, yMenu, Couleur);
     }
     /*Afficher en bas de l'écran le détail sur l'icone du menu sélectioné*/
-    afficherParametreChoisi(XmenuMax, YmenuMax);
-    //afficherParametreChoisi(menuEnCours);
-
+    //afficherParametreChoisi(XmenuMax, YmenuMax);
+    afficherParametreChoisi(menuActif);
 }
 

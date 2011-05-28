@@ -71,17 +71,37 @@ u8 noteEnCours = 0; //noteEnCours = curseurEnCours
 
 
 //Timer !
-#define WAIT_LOOP 25
+#define WAIT_LOOP 1
 int cpt = 0;
 int compteurCycle = 0;
-void timerFunction () {
-    compteurCycle ++;
-    if (compteurCycle > WAIT_LOOP){
-        cpt ++;
-        ham_DrawText (0, 2, "Compteur : %d", cpt);
+
+void timerFunction() {
+    compteurCycle++;
+    if (compteurCycle > WAIT_LOOP) {
+        cpt++;
+         snd_playSoundOnChannel1(
+                chan[chanCourant].pattern[patternCourant].notes[note].sweeptime,
+                chan[chanCourant].pattern[patternCourant].notes[note].sweepdir,
+                chan[chanCourant].pattern[patternCourant].notes[note].sweepshifts,
+                chan[chanCourant].pattern[patternCourant].notes[note].volume,
+                chan[chanCourant].pattern[patternCourant].notes[note].envdir,
+                chan[chanCourant].pattern[patternCourant].notes[note].envsteptime,
+                chan[chanCourant].pattern[patternCourant].notes[note].waveduty,
+                chan[chanCourant].pattern[patternCourant].notes[note].soundlength,
+                chan[chanCourant].pattern[patternCourant].notes[note].loopmode,
+                chan[chanCourant].pattern[patternCourant].notes[note].output,
+                chan[chanCourant].pattern[patternCourant].notes[note].sfreq, 0);
         compteurCycle = 0;
     }
 }
+
+void startPlayer() {
+    ham_StartIntHandler (INT_TYPE_TIM3, (void*) &timerFunction);
+    R_TIM3CNT = 0;
+    M_TIM3CNT_IRQ_ENABLE
+    M_TIM3CNT_TIMER_START
+}
+
 //
 //int main() {
 //

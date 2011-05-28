@@ -884,19 +884,7 @@ int ecranPattern() {
                                 u16 sweeptime, u16 sweepdir, u16 sweepshifts, u16 volume,
                                         u16 envdir, u16 envsteptime, u16 waveduty, u16 soundlength,
                                         u16 loopmode, u8 output, u16 sfreq, u8 transpose);*/
-                snd_playSoundOnChannel1(
-                        chan[chanCourant].pattern[patternCourant].notes[note].sweeptime,
-                        chan[chanCourant].pattern[patternCourant].notes[note].sweepdir,
-                        chan[chanCourant].pattern[patternCourant].notes[note].sweepshifts,
-                        chan[chanCourant].pattern[patternCourant].notes[note].volume,
-                        chan[chanCourant].pattern[patternCourant].notes[note].envdir,
-                        chan[chanCourant].pattern[patternCourant].notes[note].envsteptime,
-                        chan[chanCourant].pattern[patternCourant].notes[note].waveduty,
-                        chan[chanCourant].pattern[patternCourant].notes[note].soundlength,
-                        chan[chanCourant].pattern[patternCourant].notes[note].loopmode,
-                        chan[chanCourant].pattern[patternCourant].notes[note].output,
-                        chan[chanCourant].pattern[patternCourant].notes[note].sfreq, 0);
-                //pause(10);
+               // startPlayer();
                 //	}
                 /*if(playing==1) {
                         snd_stopAllSounds();
