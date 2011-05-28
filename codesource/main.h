@@ -14,9 +14,9 @@
  * Variables globales
  **/
 int numBank;
-int position=2;
-u8	playing = 1;//Par défaut lorsque l'on demarre picoloop ça joue la musique.
-u8 menuActif = 1;/*Quel est le paramètre du menu qui est actif : volume/envelope OU note/Octave etc. Par défaut on met en menuActif l'icone Volume/Enveloppe*/
+int position = 2;
+u8 playing = 1; //Par défaut lorsque l'on demarre picoloop ça joue la musique.
+u8 menuActif = 1; /*Quel est le paramètre du menu qui est actif : volume/envelope OU note/Octave etc. Par défaut on met en menuActif l'icone Volume/Enveloppe*/
 #define pauseParDefaut 10
 
 
@@ -38,9 +38,9 @@ u8 menuActif = 1;/*Quel est le paramètre du menu qui est actif : volume/envelop
 /** 
  \biref Écran et palette de couleurs
  **/
-u16* videoBuffer 	= (u16*) 0x6000000;
-u16* palette       	= (u16*) 0x5000000;
-u16* spritePalette 	= (u16*) 0x5000200;
+u16* videoBuffer = (u16*) 0x6000000;
+u16* palette = (u16*) 0x5000000;
+u16* spritePalette = (u16*) 0x5000200;
 
 /**
  *\brief Couleur RGB

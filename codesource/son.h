@@ -13,28 +13,28 @@ const char* noteName[12] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A"
  * \brief Structure servant à stocker les paramètres des notes.
  * Certains paramètres seront regroupés dans un soucis d'économmie mémoire
  **/
-typedef struct NOTE{
-	u8 noteName; // C = 0, C# = 1, etc... ca correspond au tableau const plus haut
+typedef struct NOTE {
+    u8 noteName; // C = 0, C# = 1, etc... ca correspond au tableau const plus haut
 
-	//Paramètres pour la fonction snd_playSoundOnChannel1 et 2
-	u8 sweeptime;
-	u8 sweepdir;
-	u8 sweepshifts;
-	u8 volume;
+    //Paramètres pour la fonction snd_playSoundOnChannel1 et 2
+    u8 sweeptime;
+    u8 sweepdir;
+    u8 sweepshifts;
+    u8 volume;
     u8 envdir;
     u8 envsteptime;
-    u8 waveduty; 
+    u8 waveduty;
     u8 soundlength;
     u8 loopmode;
     u8 sfreq;
     u8 transpose;
     u8 output;
-    
+
     //Paramètres en plus pour la fonction snd_playSoundOnChannel3
-	u8 voice;
+    u8 voice;
     u8 bank;
     u8 bankMode;
-    
+
     //Paramètres en plus pour la fonction snd_playSoundOnChannel4
     u8 shiftFreq;
     u8 stepping;
@@ -44,27 +44,61 @@ typedef struct NOTE{
 /**
  \brief Structure pour créer les 16 notes d'un pattern
  **/
-typedef struct PATTERN{
-	note notes[16];
+typedef struct PATTERN {
+    note notes[16];
 } pattern;
 
 /**
  \brief Création des patterns pour tous les canaux
  **/
 #define NB_PATTERN 2
+
 typedef struct CHANNEL {
-	pattern pattern[NB_PATTERN];
+    pattern pattern[NB_PATTERN];
 } channel;
 
 /*Création des 4 cannaux*/
 channel chan[4];
 
 //Channel
-u8 chanCourant = 0;//PU1
+u8 chanCourant = 0; //PU1
 
 //Pattern en cours
 u8 patternCourant = 0;
 
 //Note en cours
-u8 noteEnCours = 0;//noteEnCours = curseurEnCours
+u8 noteEnCours = 0; //noteEnCours = curseurEnCours
 
+
+//Timer !
+#define WAIT_LOOP 25
+int cpt = 0;
+int compteurCycle = 0;
+void timerFunction () {
+    compteurCycle ++;
+    if (compteurCycle > WAIT_LOOP){
+        cpt ++;
+        ham_DrawText (0, 2, "Compteur : %d", cpt);
+        compteurCycle = 0;
+    }
+}
+//
+//int main() {
+//
+//    ham_Init();
+//    ham_InitText(1);
+//    ham_SetBgMode(0);
+//    
+//    ham_DrawText(0,1,"WTF ?");
+//    
+//    ham_StartIntHandler (INT_TYPE_TIM3, (void*) &timerFunction);
+//    R_TIM3CNT = 0;
+//    M_TIM3CNT_IRQ_ENABLE
+//    M_TIM3CNT_TIMER_START
+//    
+//    while (1){
+//    }
+//    
+//    return 0;
+//}
+//
