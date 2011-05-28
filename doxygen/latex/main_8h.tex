@@ -1,0 +1,177 @@
+\section{source/main.h File Reference}
+\label{main_8h}\index{source/main.h@{source/main.h}}
+
+
+Définition des types de variables et registres utilisés.  
+
+
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf REG\_\-DISPCNT}~$\ast$(volatile u32$\ast$)0x4000000\label{main_8h_a9a5b1a8377f77fcfde2069c040bcdfdf}
+
+\begin{DoxyCompactList}\small\item\em Registres pour la gestion de l'écran et mode graphique. \item\end{DoxyCompactList}\item 
+\#define {\bfseries MODE\_\-3}~0x3\label{main_8h_aeb99b4257cb3cd9fb539529a1bd2d9ca}
+
+\item 
+\#define {\bfseries MODE\_\-4}~0x4\label{main_8h_a8b3b716ea0f4eba28a190998b096c063}
+
+\item 
+\#define {\bfseries BG2}~0x400\label{main_8h_a9009ae475664cbcf524bf5d7838cb74e}
+
+\item 
+\#define {\bfseries OBJ\_\-ENABLED}~0x0100\label{main_8h_a4d80d632fd6246b31023c1265cbb3cb6}
+
+\item 
+\#define {\bf LARGEUR\_\-ECRAN}~240\label{main_8h_a586a4c30ccbcbe94b7776a73d0c6fe18}
+
+\begin{DoxyCompactList}\small\item\em Dimensions de l'écran en mode 4. \item\end{DoxyCompactList}\item 
+\#define {\bfseries HAUTEUR\_\-ECRAN}~160\label{main_8h_ad86253328fbbbd6eb266efdd6bd2ef09}
+
+\item 
+\#define {\bf RGB}(r, g, b)~((r) $|$ (g $<$$<$ 5) $|$ (b $<$$<$ 10))\label{main_8h_a4a118ad3ee36468a3fa616977a64864e}
+
+\begin{DoxyCompactList}\small\item\em Couleur RGB. \item\end{DoxyCompactList}\item 
+\#define {\bf REG\_\-KEYS}~$\ast$(volatile unsigned long$\ast$) 0x4000130\label{main_8h_a583b67102d0dc0ee14a6e23706812838}
+
+\begin{DoxyCompactList}\small\item\em La gestion des touches. \item\end{DoxyCompactList}\item 
+\#define {\bfseries REG\_\-TOUCHES}~($\sim$(REG\_\-KEYS) \& 0x03FF)\label{main_8h_a643619e7fb9a1f978756dc2da7390a7d}
+
+\item 
+\#define {\bfseries TOUCHE\_\-A}~0x0001\label{main_8h_ac7b2675b691c02c06971fc24accd91d1}
+
+\item 
+\#define {\bfseries TOUCHE\_\-B}~0x0002\label{main_8h_a32a5b12463cf637cf7bd221439513882}
+
+\item 
+\#define {\bfseries TOUCHE\_\-SELECT}~0x0004\label{main_8h_a7006addcdff657b828ee624945e63776}
+
+\item 
+\#define {\bfseries TOUCHE\_\-START}~0x0008\label{main_8h_a9fed50c746d1e63b3382b9340b45f3ea}
+
+\item 
+\#define {\bfseries TOUCHE\_\-DROITE}~0x0010\label{main_8h_a850126dd65ffb2cee5210c0a5216d728}
+
+\item 
+\#define {\bfseries TOUCHE\_\-GAUCHE}~0x0020\label{main_8h_ae887353b5db4eaf85d0db79f39b92d80}
+
+\item 
+\#define {\bfseries TOUCHE\_\-HAUT}~0x0040\label{main_8h_a05db80a8b7f06e2d674678ffc54b1990}
+
+\item 
+\#define {\bfseries TOUCHE\_\-BAS}~0x0080\label{main_8h_a83f4b38acc8e8b57b0e15ea3560d0d3c}
+
+\item 
+\#define {\bfseries TOUCHE\_\-R}~0x0100\label{main_8h_af0822f307c94b749daf9a0adff26764f}
+
+\item 
+\#define {\bfseries TOUCHE\_\-L}~0x0200\label{main_8h_ac9cf01ec0c68aa2c3e77674c51fdf190}
+
+\item 
+\#define {\bf BLANC}~RGB(255, 255, 255)\label{main_8h_a4371941fa5aa27c04b3e2b973c39f4b0}
+
+\begin{DoxyCompactList}\small\item\em Définition des Couleurs {\tt http://www.jokconcept.net/codes-\/couleurs-\/hexdecimal.php}). \item\end{DoxyCompactList}\item 
+\#define {\bfseries ROUGE}~RGB(255, 0, 0)\label{main_8h_a358a59dd21062085dd34d5c228c5f136}
+
+\item 
+\#define {\bfseries JAUNE}~RGB(255, 255, 0)\label{main_8h_a34c109ff6a0293c4706defe141ef7e0c}
+
+\item 
+\#define {\bfseries BLEU}~RGB(0, 10, 153)\label{main_8h_ae22837728df88da892b4bb16bb98296d}
+
+\item 
+\#define {\bfseries BLEUCLAIR}~RGB(0, 25, 153)\label{main_8h_a580c4099c9eebb5a78c919f1ca91e837}
+
+\item 
+\#define {\bfseries NOIR}~RGB(0, 0, 0)\label{main_8h_a8a711bd77f878f23e61dfd98fc505a1c}
+
+\item 
+\#define {\bfseries GRIS}~RGB(90,90,90)\label{main_8h_a53a157dfb1d9f76fd0a9e0205d067143}
+
+\item 
+\#define {\bfseries VERT}~RGB(100,200,100)\label{main_8h_a22c2b7cb14b1ffb516a9ed4a164b5cda}
+
+\item 
+\#define {\bfseries VIOLET}~RGB(50,100,50)\label{main_8h_a928ad872921809adddfdd7f5d260fac0}
+
+\item 
+\#define {\bfseries ROSE}~RGB(255,204,255)\label{main_8h_a30283739677a9ab6664959f69e2d8dde}
+
+\item 
+\#define {\bf TIME\_\-FREQUENCY\_\-SYSTEM}~0x0\label{main_8h_a438eb6dd7a056a16938c5f2bf8e4282b}
+
+\begin{DoxyCompactList}\small\item\em Registres pour les Timers A voir plus tard avec HAM. \item\end{DoxyCompactList}\item 
+\#define {\bfseries TIME\_\-FREQUENCY\_\-64}~0x1\label{main_8h_a251e1209bdd6cfbeba1e8be691b82a9a}
+
+\item 
+\#define {\bfseries TIME\_\-FREQUENCY\_\-256}~0x2\label{main_8h_a0519a9509ef094331a53cea201060da3}
+
+\item 
+\#define {\bfseries TIME\_\-FREQUENCY\_\-1024}~0x3\label{main_8h_a243c2eff2513382b53f9d88766ebc10c}
+
+\item 
+\#define {\bfseries TIME\_\-OVERFLOW}~0x4\label{main_8h_afe2ebbc12798ce2274289a678e2d2007}
+
+\item 
+\#define {\bfseries TIME\_\-ENABLE}~0x80\label{main_8h_ab83862a991f12f384630b6a1f1a66068}
+
+\item 
+\#define {\bfseries TIME\_\-IRQ\_\-ENABLE}~0x40\label{main_8h_a25a111ec9475b7175950a32a43d14b54}
+
+\item 
+\#define {\bfseries REG\_\-TM2D}~$\ast$(volatile u16$\ast$) 0x4000108\label{main_8h_addeefd9e702badc8a29d3a8f017181a4}
+
+\item 
+\#define {\bfseries REG\_\-TM2CNT}~$\ast$(volatile u16$\ast$) 0x400010A\label{main_8h_a82097351000ce29b5b7d56175c0032bf}
+
+\item 
+\#define {\bfseries REG\_\-TM3D}~$\ast$(volatile u16$\ast$) 0x400010C\label{main_8h_a4fe56d5cbcc81b615ca9495310f7f5cb}
+
+\item 
+\#define {\bfseries REG\_\-TM3CNT}~$\ast$(volatile u16$\ast$) 0x400010E\label{main_8h_a232988998c9f87cea01dc100bd4d30cd}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char {\bf u8}\label{main_8h_aed742c436da53c1080638ce6ef7d13de}
+
+\begin{DoxyCompactList}\small\item\em Types usuels sur GBA. \item\end{DoxyCompactList}\item 
+typedef unsigned short {\bfseries u16}\label{main_8h_a9e6c91d77e24643b888dbd1a1a590054}
+
+\item 
+typedef unsigned long {\bfseries u32}\label{main_8h_a2caf5cd7bcdbe1eefa727f44ffb10bac}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf numBank}
+\item 
+int {\bfseries position} = 2\label{main_8h_a401e942526aac47cef94f478182486e7}
+
+\item 
+{\bf u8} {\bfseries playing} = 1\label{main_8h_abc0b00c04c93ec14236edcf27cc3e544}
+
+\item 
+u16 $\ast$ {\bf videoBuffer} = (u16$\ast$) 0x6000000
+\item 
+u16 $\ast$ {\bfseries palette} = (u16$\ast$) 0x5000000\label{main_8h_aef1309f61f773746f03d13f69d6ca3e6}
+
+\item 
+u16 $\ast$ {\bfseries spritePalette} = (u16$\ast$) 0x5000200\label{main_8h_ac1da00969ff36d611bc5611a54ccf247}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Définition des types de variables et registres utilisés. 
+
+\subsection{Variable Documentation}
+\index{main.h@{main.h}!numBank@{numBank}}
+\index{numBank@{numBank}!main.h@{main.h}}
+\subsubsection[{numBank}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf numBank}}\label{main_8h_aefb5ba1b2f7be4a3493e5f6a49563e09}
+Variables globales \index{main.h@{main.h}!videoBuffer@{videoBuffer}}
+\index{videoBuffer@{videoBuffer}!main.h@{main.h}}
+\subsubsection[{videoBuffer}]{\setlength{\rightskip}{0pt plus 5cm}u16$\ast$ {\bf videoBuffer} = (u16$\ast$) 0x6000000}\label{main_8h_a0a7c0ba1591b9aca7600d5641ef485f4}
+Écran et palette de couleurs 

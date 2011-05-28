@@ -1,0 +1,56 @@
+\section{source/son.h File Reference}
+\label{son_8h}\index{source/son.h@{source/son.h}}
+
+
+Initialisation et gestion du son tout ce qui n'est pas dans la lib sound.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bf NOTE}
+\begin{DoxyCompactList}\small\item\em Structure servant à stocker les paramètres des notes. Certains paramètres seront regroupés dans un soucis d'économmie mémoire. \item\end{DoxyCompactList}\item 
+struct {\bf PATTERN}
+\begin{DoxyCompactList}\small\item\em Structure pour créer les 16 notes d'un pattern. \item\end{DoxyCompactList}\item 
+struct {\bf CHANNEL}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf NB\_\-PATTERN}~2\label{son_8h_a4b89ee24c712fcd59eb930e513545a0d}
+
+\begin{DoxyCompactList}\small\item\em Création des patterns pour tous les canaux. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct {\bf NOTE} {\bf note}\label{son_8h_a62e7fe797b4ff926a53be7d31640dfd1}
+
+\begin{DoxyCompactList}\small\item\em Structure servant à stocker les paramètres des notes. Certains paramètres seront regroupés dans un soucis d'économmie mémoire. \item\end{DoxyCompactList}\item 
+typedef struct {\bf PATTERN} {\bf pattern}\label{son_8h_a1de7d1b0b76cc4c3f46ce9fb4fe98c8a}
+
+\begin{DoxyCompactList}\small\item\em Structure pour créer les 16 notes d'un pattern. \item\end{DoxyCompactList}\item 
+typedef struct {\bf CHANNEL} {\bfseries channel}\label{son_8h_ab77933e2e1fc604055c1d8d2703df98a}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ {\bf noteName} [12] = \{\char`\"{}C\char`\"{}, \char`\"{}C\#\char`\"{}, \char`\"{}D\char`\"{}, \char`\"{}D\#\char`\"{}, \char`\"{}E\char`\"{}, \char`\"{}F\char`\"{}, \char`\"{}F\#\char`\"{}, \char`\"{}G\char`\"{}, \char`\"{}G\#\char`\"{}, \char`\"{}A\char`\"{}, \char`\"{}A\#\char`\"{}, \char`\"{}B\char`\"{}\}\label{son_8h_acc7f9239975764f08ef55b6e96c11aa7}
+
+\begin{DoxyCompactList}\small\item\em Tableau de char pour stocker le nom de notes. \item\end{DoxyCompactList}\item 
+{\bf channel} {\bfseries chan} [4]\label{son_8h_a227d5d974f990540c3d2807d3986606f}
+
+\item 
+{\bf u8} {\bfseries chanCourant} = 0\label{son_8h_a9c1e119e34d5833e5c4b489b95e6b4ef}
+
+\item 
+{\bf u8} {\bfseries patternCourant} = 0\label{son_8h_afcd80d23f1f5d1bf6744b833b5ec5e0b}
+
+\item 
+{\bf u8} {\bfseries noteEnCours} = 0\label{son_8h_a775d8e140f454b771d27a03bb818a8bc}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Initialisation et gestion du son tout ce qui n'est pas dans la lib sound. 

@@ -1,0 +1,157 @@
+\section{source/soundApi/soundApi.h File Reference}
+\label{sound_api_8h}\index{source/soundApi/soundApi.h@{source/soundApi/soundApi.h}}
+
+
+Définition des fonctions implémentées par la soundApi GBA.  
+
+
+{\ttfamily \#include \char`\"{}register.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf snd\_\-init\_\-soundApi} ()\label{sound_api_8h_a6d8e8eccdda5bf863a0d035dfb6fc8d8}
+
+\begin{DoxyCompactList}\small\item\em Initialise le mode audio sur la Gameboy: active les 4 canaux. \item\end{DoxyCompactList}\item 
+void {\bf snd\_\-playSoundOnChannel1} (u16 sweeptime, u16 sweepdir, u16 sweepshifts, u16 volume, u16 envdir, u16 envsteptime, u16 waveduty, u16 soundlength, u16 loopmode, u16 sfreq, {\bf u8} transpose)
+\begin{DoxyCompactList}\small\item\em Joue un son sur le channel 1. \item\end{DoxyCompactList}\item 
+void {\bf snd\_\-simple\_\-playSoundOnChannel1} ({\bf u8} sweep, u16 envelope, {\bf u8} mode, {\bf u8} length, u16 noteFreq, {\bf u8} transpose)
+\begin{DoxyCompactList}\small\item\em Joue un son sur le channel 1. \item\end{DoxyCompactList}\item 
+void {\bf snd\_\-playSoundOnChannel2} (u16 volume, u16 envdir, u16 envsteptime, u16 waveduty, u16 soundlength, u16 loopmode, u16 sfreq, {\bf u8} transpose)
+\begin{DoxyCompactList}\small\item\em Joue un son sur le channel 2. \item\end{DoxyCompactList}\item 
+void {\bfseries snd\_\-simple\_\-playSoundOnChannel2} (u16 envelope, {\bf u8} mode, {\bf u8} length, {\bf u8} noteFreq, {\bf u8} transpose)\label{sound_api_8h_a852c7bab655a7ddb9df785764cb9afd0}
+
+\item 
+void {\bf snd\_\-playSoundOnChannel3} (u16 volume, u16 soundLength, u16 loopmode, u16 voice, u16 bank, u16 bankMode, u16 freq, {\bf u8} transpose)
+\begin{DoxyCompactList}\small\item\em Joue un son sur le channel 3. \item\end{DoxyCompactList}\item 
+void {\bfseries snd\_\-simple\_\-playSoundOnChannel3} ()\label{sound_api_8h_a95c122cb1512987eca3990d2b8d246d0}
+
+\item 
+void {\bf snd\_\-playSoundOnChannel4} (u16 volume, u16 envdir, u16 envsteptime, u16 soundlength, u16 loopmode, u16 shiftFreq, u16 stepping, u16 freqRatio, {\bf u8} transpose)
+\begin{DoxyCompactList}\small\item\em Joue un son sur le channel 4. \item\end{DoxyCompactList}\item 
+void {\bfseries snd\_\-simple\_\-playSoundOnChannel4} (u16 envelope, {\bf u8} mode, {\bf u8} length)\label{sound_api_8h_a6bf902300539c7925905d70202bdeac1}
+
+\item 
+void {\bf snd\_\-stopAllSounds} ()\label{sound_api_8h_a13ca81dcea5469052d82cf5d94081e76}
+
+\begin{DoxyCompactList}\small\item\em Eteint tout les sons en cours de lecture. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Définition des fonctions implémentées par la soundApi GBA. Quelques règles à suivre :
+
+
+\begin{DoxyItemize}
+\item toutes les fonctions sont préfixées par \char`\"{}snd\_\-\char`\"{} comme ca pas de risque de conflit.
+\item les fonctions non testées sont préfixées par \char`\"{}tmp\_\-snd\_\-\char`\"{}, une fois testée -\/$>$ on change en \char`\"{}snd\_\-\char`\"{}.
+\item un petit commentaire au dessus de la fonction pour documenter. 
+\end{DoxyItemize}
+
+\subsection{Function Documentation}
+\index{soundApi.h@{soundApi.h}!snd\_\-playSoundOnChannel1@{snd\_\-playSoundOnChannel1}}
+\index{snd\_\-playSoundOnChannel1@{snd\_\-playSoundOnChannel1}!soundApi.h@{soundApi.h}}
+\subsubsection[{snd\_\-playSoundOnChannel1}]{\setlength{\rightskip}{0pt plus 5cm}void snd\_\-playSoundOnChannel1 (
+\begin{DoxyParamCaption}
+\item[{u16}]{ sweeptime, }
+\item[{u16}]{ sweepdir, }
+\item[{u16}]{ sweepshifts, }
+\item[{u16}]{ volume, }
+\item[{u16}]{ envdir, }
+\item[{u16}]{ envsteptime, }
+\item[{u16}]{ waveduty, }
+\item[{u16}]{ soundlength, }
+\item[{u16}]{ loopmode, }
+\item[{u16}]{ sfreq, }
+\item[{{\bf u8}}]{ transpose}
+\end{DoxyParamCaption}
+)}\label{sound_api_8h_a98314f5968095e0e92e666883042305c}
+
+
+Joue un son sur le channel 1. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em sweeptime}]Temps de sweep de 0 à 7 \item[{\em sweepdir}]Direction du sweep 1 increase, 0 decrease \item[{\em sweepshifts}]L'effet sweep de 0 à 7 \item[{\em volume}]De 0 à F \item[{\em envdir}]Direction de l'enveloppe 1 increase, 0 decrease \item[{\em envsteptime}]Pas de l'enveloppe de 0 à 7 \item[{\em waveduty}]Forme de l'onde 0, 1, 2 ou 3 \item[{\em soundlength}]Durée du son 0 à 3f (attention valeur inversée: 3f = court) ACTIF seulement si loopmode = 1 \item[{\em loopmode}]Timed 1, continuous 0 \item[{\em sfreq}]Le numéro de fréquence de la note jouée. de 0 à 72 cf: const u16 freqs[NB\_\-FREQUENCES] \item[{\em transpose}]La valeur de transposition de 0 à FF \end{DoxyParams}
+\index{soundApi.h@{soundApi.h}!snd\_\-playSoundOnChannel2@{snd\_\-playSoundOnChannel2}}
+\index{snd\_\-playSoundOnChannel2@{snd\_\-playSoundOnChannel2}!soundApi.h@{soundApi.h}}
+\subsubsection[{snd\_\-playSoundOnChannel2}]{\setlength{\rightskip}{0pt plus 5cm}void snd\_\-playSoundOnChannel2 (
+\begin{DoxyParamCaption}
+\item[{u16}]{ volume, }
+\item[{u16}]{ envdir, }
+\item[{u16}]{ envsteptime, }
+\item[{u16}]{ waveduty, }
+\item[{u16}]{ soundlength, }
+\item[{u16}]{ loopmode, }
+\item[{u16}]{ sfreq, }
+\item[{{\bf u8}}]{ transpose}
+\end{DoxyParamCaption}
+)}\label{sound_api_8h_abb953c2c5e4de26648970f2aeb6ec851}
+
+
+Joue un son sur le channel 2. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em volume}]de 0 à F \item[{\em envdir}]direction de l'enveloppe 1 increase, 0 decrease \item[{\em envsteptime}]pas de l'enveloppe de 0 à 7 \item[{\em waveduty}]forme de l'onde 0, 1, 2 ou 3f \item[{\em soundlength}]durée du son 0 à 3f (attention valeur inversée: 3f = court) ACTIF seulement si loopmode = 1 \item[{\em loopmode}]continuous 0, timed 1 \item[{\em sfreq}]le numéro de fréquence de la note jouée. de 0 à 72 cf: const u16 freqs[NB\_\-FREQUENCES] \item[{\em transpose}]le paramètre de transposition \end{DoxyParams}
+\index{soundApi.h@{soundApi.h}!snd\_\-playSoundOnChannel3@{snd\_\-playSoundOnChannel3}}
+\index{snd\_\-playSoundOnChannel3@{snd\_\-playSoundOnChannel3}!soundApi.h@{soundApi.h}}
+\subsubsection[{snd\_\-playSoundOnChannel3}]{\setlength{\rightskip}{0pt plus 5cm}void snd\_\-playSoundOnChannel3 (
+\begin{DoxyParamCaption}
+\item[{u16}]{ volume, }
+\item[{u16}]{ soundLength, }
+\item[{u16}]{ loopmode, }
+\item[{u16}]{ voice, }
+\item[{u16}]{ bank, }
+\item[{u16}]{ bankMode, }
+\item[{u16}]{ freq, }
+\item[{{\bf u8}}]{ transpose}
+\end{DoxyParamCaption}
+)}\label{sound_api_8h_a64de6927079c83ef253c765ff79190b4}
+
+
+Joue un son sur le channel 3. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em volume}]0 à 4 \item[{\em soundLength}]durée du son de 0 a FF (valeur inversée: FF = très court) \item[{\em loopmode}]timed = 1, continuous = 0 \item[{\em voice}]numéro de la voix à jouer \item[{\em bank}]numéro de la bank à jouer 0 ou 1 (appliqué seulement si bankMode = 1) \item[{\em bankMode}]single 0, dual 1 \item[{\em freq}]le numéro de fréquence de la note jouée. de 0 à 72 cf: const u16 freqs[NB\_\-FREQUENCES] \item[{\em transpose}]le paramètre de transposition \end{DoxyParams}
+\index{soundApi.h@{soundApi.h}!snd\_\-playSoundOnChannel4@{snd\_\-playSoundOnChannel4}}
+\index{snd\_\-playSoundOnChannel4@{snd\_\-playSoundOnChannel4}!soundApi.h@{soundApi.h}}
+\subsubsection[{snd\_\-playSoundOnChannel4}]{\setlength{\rightskip}{0pt plus 5cm}void snd\_\-playSoundOnChannel4 (
+\begin{DoxyParamCaption}
+\item[{u16}]{ volume, }
+\item[{u16}]{ envdir, }
+\item[{u16}]{ envsteptime, }
+\item[{u16}]{ soundlength, }
+\item[{u16}]{ loopmode, }
+\item[{u16}]{ shiftFreq, }
+\item[{u16}]{ stepping, }
+\item[{u16}]{ freqRatio, }
+\item[{{\bf u8}}]{ transpose}
+\end{DoxyParamCaption}
+)}\label{sound_api_8h_a6e247531db8dc792700ff048605e57a6}
+
+
+Joue un son sur le channel 4. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em volume}]de 0 à F \item[{\em envdir}]direction de l'enveloppe 1 increase, 0 decrease \item[{\em envsteptime}]pas de l'enveloppe de 0 à 7 \item[{\em soundlength}]durée du son 0 à 3f (attention valeur inversée: 3f = court) ACTIF seulement si loopmode = 1 \item[{\em loopmode}]timed 1, continuous 0 \item[{\em shiftFreq}]\item[{\em stepping}]\item[{\em freqRatio}]\item[{\em transpose}]\end{DoxyParams}
+\index{soundApi.h@{soundApi.h}!snd\_\-simple\_\-playSoundOnChannel1@{snd\_\-simple\_\-playSoundOnChannel1}}
+\index{snd\_\-simple\_\-playSoundOnChannel1@{snd\_\-simple\_\-playSoundOnChannel1}!soundApi.h@{soundApi.h}}
+\subsubsection[{snd\_\-simple\_\-playSoundOnChannel1}]{\setlength{\rightskip}{0pt plus 5cm}void snd\_\-simple\_\-playSoundOnChannel1 (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{ sweep, }
+\item[{u16}]{ envelope, }
+\item[{{\bf u8}}]{ mode, }
+\item[{{\bf u8}}]{ length, }
+\item[{u16}]{ noteFreq, }
+\item[{{\bf u8}}]{ transpose}
+\end{DoxyParamCaption}
+)}\label{sound_api_8h_a63f705098e6b342fcf9212ef335d3425}
+
+
+Joue un son sur le channel 1. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em sweep}]Combinaison de tous les paramètres sweep (sweeptime, sweepdir, sweepshifts) de 0 à FF. \item[{\em envelope}]Combinaison de tous les paramètres pour l'enveloppe (volume, envdir, envsteptime, waveduty) de 0 à FFFF \item[{\em mode}]Timed 1, continuous 0 \item[{\em length}]Durée du son 0 à 3f (attention valeur inversée: 3f = court) ACTIF seulement si loopmode = 1 \item[{\em noteFreq}]Le numéro de fréquence de la note jouée. de 0 à 72 cf: const u16 freqs[NB\_\-FREQUENCES] \item[{\em transpose}]La valeur de transposition de 0 à FF.\end{DoxyParams}
+Cette méthode est plus simple que snd\_\-playSoundOnChannel1 mais produit le même résultat. 
